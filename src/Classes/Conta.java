@@ -4,6 +4,12 @@ public class Conta {
     private TipoOperacao operacao;
     private double valorOperacao;
     private double saldo;
+    private Cliente cliente;
+
+    public Conta(Cliente cliente){
+        this.cliente = cliente;
+        cliente.setConta(this);
+    }
 
     //#region
     public TipoOperacao getOperacao() {
@@ -37,6 +43,14 @@ public class Conta {
           }
 
         System.out.println("O saldo atual é: R$" + this.saldo);  
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
    
 }

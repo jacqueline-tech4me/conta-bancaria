@@ -8,8 +8,8 @@ import Classes.Conta;
 public class Programa {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
-        Conta conta2 = new Conta();
-        Cliente cliente = new Cliente("Jacque", conta2);
+        Cliente cliente = new Cliente("Marcus");
+        Conta conta = new Conta(cliente);
    
         int opcao = -1;
 
@@ -22,13 +22,13 @@ public class Programa {
                   System.out.println("Encerrando a aplicação");
                   return;  
                 case 1:
-                  sacar(ler, cliente); 
+                  sacar(ler, conta.getCliente()); 
                   break;
                 case 2:
-                  depositar(ler, cliente);
+                  depositar(ler, conta.getCliente());
                   break;
                 case 3:
-                  exibeSaldo(cliente);
+                  exibeSaldo(conta);
                   break;
                 default:
                   System.out.println("Operação inválida. Verifique");  
@@ -43,8 +43,8 @@ public class Programa {
         
     }
 
-    private static void exibeSaldo(Cliente cliente) {
-        cliente.exibirSaldo();
+    private static void exibeSaldo(Conta conta) {
+        conta.getCliente().exibirSaldo();
     }
 
     private static void depositar(Scanner ler, Cliente cliente) {

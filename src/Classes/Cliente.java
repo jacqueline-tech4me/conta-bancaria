@@ -5,7 +5,10 @@ public class Cliente {
     private String cpf;
     private Conta conta;
 
-  
+    public Cliente(String nome){
+        this.nome = nome;
+    }
+
     public Cliente(String nome, Conta conta) {
         this.nome = nome;
         this.conta = conta;
